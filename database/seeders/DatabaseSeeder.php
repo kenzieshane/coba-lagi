@@ -9,21 +9,17 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
-    
-   
 
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        $this->call(add_shop_db::class);
         // User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'app@example.com',
-            'password' => bcrypt('password'),
+            'email' => 'test@example.com',
         ]);
     }
 }
