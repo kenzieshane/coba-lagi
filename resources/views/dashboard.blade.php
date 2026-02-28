@@ -6,6 +6,7 @@
     }
     .book {
         border: 1px solid #ccc;
+        background-image: linear-gradient(to bottom, #FFFFFF, #FF6666);
         padding: 10px;
         width: 200px;
     }
@@ -23,6 +24,7 @@
         </h2>
     </x-slot>
 
+    <br>
 <div>
     <div class=booklist>
     <?php $shop_db = DB::table('shop_db')->get(); ?>
@@ -41,7 +43,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    {{ __("Kamu sudah berhasil masuk!") }}
                 </div>
             </div>
         </div>

@@ -33,6 +33,7 @@ body {
                 font-family: 'Open Sans';
                 color: #FFFFFF;
                 text-decoration: none;
+                  text-align:center;
             }
 
             .bookcase
@@ -54,7 +55,7 @@ body {
     </style>
 </head>
 <body>
-    <h1>☭ The Nusantara Merah Project</h1>
+    <h1>Selamat datang di Nusantara Merah Project!</h1>
     <nav class="flex items-center justify-end gap-4">
                     @auth
                         <a
@@ -84,10 +85,10 @@ body {
                 <br>
 
                 <div class="bookcase">
-                <img class=books src="{{asset('buku.png')}}">
-                <img class=books src="{{asset('buku1.png')}}">
-                <img class=books src="{{asset('buku2.png')}}">
+                <a href=/login><img class=books src="{{asset('buku.png')}}"></a>
+                <a href=/login><img class=books src="{{asset('buku1.png')}}"></a>
+                <a href=/login><img class=books src="{{asset('buku2.png')}}"></a>
                 </div>
-                <p>Seri Nusantara Merah Project ini adalah kumpulan buku tentang sejarah alternatif Indonesia mulai dari 1949.</p>
+                <p>Seri Nusantara Merah Project ini adalah kumpulan buku tentang sejarah alternatif Indonesia mulai dari 1949, dibuat oleh Kenzie Shane Setiawan dalam pembayangannya akan realitas lain dimana REPUBLIK INDONESIA SERIKAT tidak pernah berubah bentuk pemerintahan dan dimana Indonesia tidak netral politik (dalam konteks perang dingin)</p>
 </body>
 </html>
