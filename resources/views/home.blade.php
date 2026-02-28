@@ -46,12 +46,21 @@ body {
                 padding:10px;
                 border-radius: 10px;
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                /* default to single column for small screens */
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
+            /* stack three columns on larger viewports */
+            @media (min-width: 640px) {
+                .bookcase {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
+
             .books
             {
-                max-width: 266px;
-                max-height: 800px;
+                max-width: 100%;
+                height: auto;
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -59,7 +68,7 @@ body {
 </head>
 <body>
     <h1>Selamat datang di Nusantara Merah Project!</h1>
-    <nav class="flex items-center justify-end gap-4">
+    <nav class="flex flex-wrap items-center justify-center gap-4">
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
