@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Nusantara Merah Project</title>
-    
+    <meta property="og:type" content="website" />
+<meta property="og:url" content="https://store.kenzieshane.my.id/" />
+<meta property="og:image" content="https://www.kenzieshane.my.id/profile.jpg" />
+
     @auth
         <meta http-equiv="refresh" content="0; url=/dashboard">
     @endauth
