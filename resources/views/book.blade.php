@@ -21,9 +21,12 @@
                                 {{ $book->description }}
                             </p>
                         </div>
-                        <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
-                            Tambah ke Keranjang
-                        </button>
+                        <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
+                                Tambah ke Keranjang
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

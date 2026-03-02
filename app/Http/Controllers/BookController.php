@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\book;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -63,5 +63,22 @@ class BookController extends Controller
     public function destroy(book $book)
     {
         //
+    }
+
+    public function addToCart(Request $request, $id)
+    {
+        $book = Book::findOrFail($id);
+        $user = auth()->user();
+
+        $ownedProducts = trim($user->owned_product);
+        $productsArray = $ownedProducts ? explode(',', $ownedProducts) : [];
+
+        if (!in_array($id, $productsArray)) {
+            $productsArray[] = $id;
+            $user->owned_product = implode(',', $productsArray);
+            $user->save();
+        }
+
+        return redirect()->back()->with('success', 'Buku berhasil ditambahkan ke keranjang!');
     }
 }

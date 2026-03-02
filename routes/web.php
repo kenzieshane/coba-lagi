@@ -25,3 +25,5 @@ Route::get('/books', [BookController::class, 'index']
 
 Route::get('/{id}', [BookController::class, 'show']
 );
+
+Route::post('/cart/add/{id}', [BookController::class, 'addToCart'])->middleware('auth')->name('cart.add');
