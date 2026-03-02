@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/my-books', [BookController::class, 'myBooks'])->middleware('auth')->name('my.books');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,3 +26,7 @@ Route::get('/books', [BookController::class, 'index']
 
 Route::get('/{id}', [BookController::class, 'show']
 );
+
+Route::post('/cart/add/{id}', [BookController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+
+Route::delete('/cart/remove/{id}', [BookController::class, 'removeFromCart'])->middleware('auth')->name('cart.remove');
