@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $book->name }}
+            {{ $book->name }} - Web design made by AI... for now
         </h2>
     </x-slot>
 
@@ -45,9 +45,11 @@
                                 <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition w-full md:w-auto">
                                     Tambah ke Keranjang
                                 </button>
-                                <a href="https://wa.me/6285379426392?text=Aku%20mau%20beli%20buku%20{{ $book->name }}">Hubungi Saya</a>
+                             
                             </form>
                         @endif
+
+                           <a href="https://wa.me/6285379426392?text=Aku%20mau%20beli%20buku%20{{ $book->name }}">Hubungi Saya</a>
                     </div>
                 </div>
             </div>
