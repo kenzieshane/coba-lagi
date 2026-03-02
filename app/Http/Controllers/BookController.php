@@ -37,7 +37,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::findorFail($id);
+        return view('book', ['book' => $book]);
     }
 
     /**

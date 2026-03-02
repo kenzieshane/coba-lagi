@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('price');
             $table->string('image');
+            $table->string('category')->default(' ');
             $table->timestamps();
         });
     }

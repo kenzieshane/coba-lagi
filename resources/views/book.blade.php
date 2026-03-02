@@ -13,6 +13,7 @@
                         <img src="{{ $book->image }}" alt="{{ $book->name }}" class="w-full rounded-lg shadow-md">
                     </div>
                     <div class="md:w-2/3">
+                        <p>{{ $book->category }}
                         <h1 class="text-3xl font-bold mb-4">{{ $book->name }}</h1>
                         <p class="text-2xl text-indigo-600 font-semibold mb-4">{{ $book->price }}</p>
                         <div class="prose max-w-none mb-6">
@@ -20,7 +21,7 @@
                                 {{ $book->description }}
                             </p>
                         </div>
-                        <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
+                        <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
                             Tambah ke Keranjang
                         </button>
                     </div>

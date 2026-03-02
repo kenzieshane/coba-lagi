@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -8,11 +9,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/ts', function () {
-    return view('bookview');
-});
-
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -22,13 +20,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/books/{slug}', function (string $slug) {
-    $book = \Illuminate\Support\Facades\DB::table('shop_db')->where('slug', $slug)->first();
+Route::get('/books', [BookController::class, 'index']
+);
 
-    if (! $book) {
-        abort(404);
-    }
-
-    return view('book', compact('book'));
-})->name('book.show');
-
+Route::get('/{id}', [BookController::class, 'show']
+);
