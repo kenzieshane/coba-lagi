@@ -81,4 +81,30 @@ class BookController extends Controller
 
         return redirect()->back()->with('success', 'Buku berhasil ditambahkan ke keranjang!');
     }
+
+    public function myBooks()
+    {
+        $user = auth()->user();
+        $ownedProducts = trim($user->owned_product);
+        $productsArray = $ownedProducts ? explode(',', $ownedProducts) : [];
+
+        $books = Book::whereIn('id', $productsArray)->get();
+
+        return view('my-books', ['books' => $books]);
+    }
+
+    public function removeFromCart(Request $request, $id)
+    {
+        $user = auth()->user();
+        $ownedProducts = trim($user->owned_product);
+        $productsArray = $ownedProducts ? explode(',', $ownedProducts) : [];
+
+        if (($key = array_search($id, $productsArray)) !== false) {
+            unset($productsArray[$key]);
+            $user->owned_product = implode(',', $productsArray);
+            $user->save();
+        }
+
+        return redirect()->back()->with('success', 'Buku berhasil dihapus dari daftar!');
+    }
 }

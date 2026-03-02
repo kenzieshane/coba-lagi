@@ -23,7 +23,11 @@ require __DIR__.'/auth.php';
 Route::get('/books', [BookController::class, 'index']
 );
 
+Route::get('/my-books', [BookController::class, 'myBooks'])->middleware('auth')->name('my.books');
+
 Route::get('/{id}', [BookController::class, 'show']
 );
 
 Route::post('/cart/add/{id}', [BookController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+
+Route::delete('/cart/remove/{id}', [BookController::class, 'removeFromCart'])->middleware('auth')->name('cart.remove');

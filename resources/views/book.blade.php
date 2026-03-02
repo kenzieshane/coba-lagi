@@ -21,12 +21,32 @@
                                 {{ $book->description }}
                             </p>
                         </div>
-                        <form action="{{ route('cart.add', $book->id) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition">
-                                Tambah ke Keranjang
-                            </button>
-                        </form>
+                        @php
+                            $isOwned = false;
+                            if (auth()->check()) {
+                                $ownedProducts = trim(auth()->user()->owned_product);
+                                $productsArray = $ownedProducts ? explode(',', $ownedProducts) : [];
+                                $isOwned = in_array($book->id, $productsArray);
+                            }
+                        @endphp
+
+                        @if($isOwned)
+                            <div class="flex flex-col gap-4">
+                                <span class="bg-green-100 text-green-800 px-6 py-3 rounded-lg font-bold text-center border border-green-200">
+                                    Sudah Ditambahkan ke Buku Saya
+                                </span>
+                                <a href="{{ route('my.books') }}" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition text-center">
+                                    Lihat Koleksi Saya
+                                </a>
+                            </div>
+                        @else
+                            <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition w-full md:w-auto">
+                                    Tambah ke Keranjang
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
