@@ -34,7 +34,7 @@
                 <h2>{{ $book->name }}</h2>
                 <p>{{ $book->description }}</p>
                 <p>{{ $book->price }}</p>
-                <a href="{{ $book->slug }}">Beli</a>
+                <a href="{{ $book->id }}">Beli</a>
             </div>
         @endforeach
     </div>
