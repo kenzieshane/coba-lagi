@@ -14,27 +14,43 @@
     
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*
+ {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
 
 body {
-    background-color: #AA0000;
-    color: #FFFFFF;
+    background-color: #ffffff;
+    color: #000000;
 }
-            h1
+            .leftys
             {
-                font-family: 'Open Sans';
-                text-align:center;
+                font-size: 100px;
+                text-align:left;
+                display: inline-block;
+                line-height: 0;
             }
 
-            nav
+            .Lnav
             {
-                font-family: 'Open Sans';
-                text-align:center;
+
+                text-align:right;
+            }
+
+            nav {
+                                font-size:30px;
+                              text-align:right;
+                               line-height: 1;
             }
 
             a
             {
-                font-family: 'Open Sans';
-                color: #FFFFFF;
+
+                color: #000000ff;
                 text-decoration: none;
                   text-align:center;
             }
@@ -57,50 +73,106 @@ body {
                 }
             }
 
+                        .bookcasex
+            {
+                align-items: center;
+                padding:10px;
+                border-radius: 10px;
+                display: grid;
+                /* default to single column for small screens */
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            /* stack three columns on larger viewports */
+            @media (min-width: 640px) {
+                .bookcasex {
+                    grid-template-columns: 1fr;
+                }
+            }
+
             .books
             {
-                max-width: 100%;
+                max-width: 50%;
                 height: auto;
                 margin-left: auto;
                 margin-right: auto;
             }
+
+            .prev{
+                                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .search {
+                width: 200px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
     </style>
 </head>
 <body>
-    <h1>Selamat datang di Nusantara Merah Project!</h1>
-    <nav class="flex flex-wrap items-center justify-center gap-4">
+
+    <nav>
+
+                    <a href=/login><span> hubungi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;promo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toko&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tentang&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                            class="Lnav"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                            class="Lnav"
                         >
                             Log in
                         </a>
 
-<span>|</span>
+<span class="Lnav">|</span>
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
+                                class="Lnav"
+                                > Register
                             </a>
                         @endif
                     @endauth
+
+
                 </nav>
+
+               <div class="header-container">
+                   <h1 class="leftys">TOKO GENERIK KS</h1> 
+                   <input class="search" id="search" type="text" value="Search"/>
+               </div>
+                <br>
+                 <div class="bookcasex">
+                <img class=prev src="Screenshot from 2026-03-03 12-31-16.png">
+        </div>
+                         <div class="bookcasex">
+               <img class=prev src="Pasted image.png">
+        </div>
                 <br>
 
-                <div class="bookcase">
+                 <div class="bookcase">
                 <a href=/login><img class=books src="{{asset('buku.png')}}"></a>
                 <a href=/login><img class=books src="{{asset('buku1.png')}}"></a>
                 <a href=/login><img class=books src="{{asset('buku2.png')}}"></a>
                 </div>
-                <p>Seri Nusantara Merah Project ini adalah kumpulan buku tentang sejarah alternatif Indonesia mulai dari 1949, dibuat oleh Kenzie Shane Setiawan dalam pembayangannya akan realitas lain dimana REPUBLIK INDONESIA SERIKAT tidak pernah berubah bentuk pemerintahan dan dimana Indonesia tidak netral politik (dalam konteks perang dingin)</p>
+                <br>
+                <br>
+                <p>TOKO GENERIK KS(c)2026</p>
+                <br>
 </body>
 </html>
