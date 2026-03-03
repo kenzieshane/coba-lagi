@@ -31,6 +31,8 @@ body {
             {
                 font-size: 100px;
                 text-align:left;
+                display: inline-block;
+                line-height: 0;
             }
 
             .Lnav
@@ -44,6 +46,7 @@ body {
                               text-align:right;
                                line-height: 1;
             }
+
             a
             {
 
@@ -99,6 +102,21 @@ body {
                                 margin-left: auto;
                 margin-right: auto;
             }
+            
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .search {
+                width: 200px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
     </style>
 </head>
 <body>
@@ -134,8 +152,10 @@ body {
 
                 </nav>
 
-               <h1 class=leftys style="line-height: 0">TOKO GENERIK KS</h1> 
-    
+               <div class="header-container">
+                   <h1 class="leftys">TOKO GENERIK KS</h1> 
+                   <input class="search" id="search" type="text" value="Search"/>
+               </div>
                 <br>
                  <div class="bookcasex">
                 <img class=prev src="Screenshot from 2026-03-03 12-31-16.png">
