@@ -1,0 +1,22 @@
+// In vite.config.js
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+// Replace 'your-ngrok-url.ngrok.io' with your actual ngrok domain (without https://)
+const ngrokHost = 'keratogenous-undramatically-emilie.ngrok-free.dev';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+    server: {
+        hmr: {
+            host: ngrokHost,
+            protocol: 'wss',
+            clientPort: 443
+        }
+    }
+});

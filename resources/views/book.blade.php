@@ -28,4 +28,11 @@
                     
     </div>
 </form>
+
+<x-nav-link style="border: 3px solid #ffffff; color:white; padding: 10px; border-radius: 5px;" class="text-white hover:text-gray-200" :href="route('my.books')" :active="request()->routeIs('my.books')">
+                        {{ __('Buku Saya') }}
+                    </x-nav-link>
+                    <x-nav-link style="border: 3px solid #ffffff; color:white; padding: 10px; border-radius: 5px;" class="text-white hover:text-gray-200" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Balik lagi') }}
+                    </x-nav-link>
 </x-app-layout>
